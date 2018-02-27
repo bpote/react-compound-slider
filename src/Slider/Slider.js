@@ -54,7 +54,7 @@ class Slider extends PureComponent {
   }
 
   componentWillReceiveProps(next) {
-    const { domain, step, reversed, values } = next
+    const { domain, step, reversed, values, forceUpdate } = next
     const { props } = this
 
     if (
@@ -71,7 +71,7 @@ class Slider extends PureComponent {
       }
     }
 
-    if (!equal(values, props.values) || props.forceUpdate) {
+    if (!equal(values, props.values) || forceUpdate) {
       this.updateValues(values, reversed)
     }
   }
