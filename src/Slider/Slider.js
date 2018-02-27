@@ -71,7 +71,7 @@ class Slider extends PureComponent {
       }
     }
 
-    if (!equal(values, props.values)) {
+    if (!equal(values, props.values) || props.forceUpdate) {
       this.updateValues(values, reversed)
     }
   }
@@ -378,6 +378,7 @@ Slider.propTypes = {
    * Component children to render
    */
   children: PropTypes.any,
+  forceUpdate: PropTypes.bool,
 }
 
 Slider.defaultProps = {
@@ -388,6 +389,7 @@ Slider.defaultProps = {
   reversed: false,
   onUpdate: noop,
   onChange: noop,
+  forceUpdate: false,
 }
 
 export default Slider
